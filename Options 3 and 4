@@ -1,0 +1,38 @@
+//Test Factory project - Carol Liao and Tracie Ozug
+//I made some assumptions here about what you named your recipe and ingredient in methods 1 and 2. Update as needed.
+public class TestFactory {
+
+//Method 3:  Create and return a list of Recipe objects (encapsulated class, not SObject) with dummy data.
+public static List<Recipe> createRecipes(Integer numRec){
+List<Recipe> lstRec = new List<Recipe>();
+for (integer i = 0; i<numRec; i++){
+Recipe rec = new Recipe();
+rec.name = 'Recipe '+ i;
+lstRec.add(rec);
+}
+return lstRec;
+}
+//Create and return a list of ingredient objects. I am not sure if this is correct even after Niki updated the instructions. Thoughts?
+public static List<Ingredient> createIngredients(Integer numRec){
+List<Ingredient> lstRec = new List<Ingredient>();
+for (integer i =0; i<numRec; i++){
+Ingredient rec = new Ingredient();
+rec.name = 'Ingredient '+i;
+lstRec.add(rec);
+}
+return lstRec;
+}
+
+
+//Method 4:  Create, insert, and return Recipe SObjects
+//In line 29 below, I used "create" but am not sure if it should be "insertRecipesSObject".  Thoughts?
+public static List<Recipe__c> createRecipesSObject(Integer numRec){
+List<Recipe__c> lstRec = new List<Recipe__c>();
+for (integer i = 0; i<numRec; i++){
+Recipe__c rec = new Recipe__c(Name = 'Recipe '+i);
+lstRec.add(rec);
+}
+insert lstRec;
+return lstRec;
+}
+//Tests would be run at this stage
